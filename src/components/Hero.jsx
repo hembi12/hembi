@@ -2,9 +2,17 @@ import { CheckCircle, Bot } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
 export default function Hero() {
+  // Función para manejar el clic del botón de WhatsApp
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "525637677719";
+    const message = "Hola, quiero info y cotización de su chatbot.";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <section className="min-h-screen w-full bg-gradient-to-b from-neutral-50 to-neutral-100 flex items-center justify-center px-4 py-8 sm:py-12 lg:py-16">
-      <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 lg:gap-12 xl:gap-16 items-center">
+      <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-12 xl:gap-16 items-center">
         {/* Text Content */}
         <div className="text-left lg:text-left order-1 lg:order-1">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl text-neutral-800 font-extrabold text-shadow-md leading-tight mb-4 sm:mb-6">
@@ -33,19 +41,19 @@ export default function Hero() {
 
           <div className="flex flex-col sm:flex-row gap-3 items-center justify-start lg:justify-start">
             {" "}
-            <a
-              href="#contacto"
+            <button
+              onClick={handleWhatsAppClick}
               className="inline-flex items-center gap-2 w-auto sm:w-auto px-6 py-3 bg-green-600 text-white text-sm sm:text-base md:text-lg font-semibold rounded-lg hover:bg-green-700 transition duration-300 shadow-md cursor-pointer"
             >
               <FaWhatsapp className="w-4 h-4 sm:w-5 sm:h-5 mr-1" />
-              Cotización gratuita
-            </a>
+              Solicita cotización
+            </button>
             <a
               href="#demo"
               className="inline-flex items-center gap-2 w-auto sm:w-auto px-6 py-3 bg-transparent text-blue-600 hover:text-white text-sm sm:text-base md:text-lg font-semibold rounded-lg hover:bg-blue-600 border border-blue-600 transition duration-300 shadow-md cursor-pointer"
             >
               <Bot className="w-4 h-4 sm:w-5 sm:h-5 mr-1" />
-              Demo en línea
+              Demo online
             </a>
           </div>
         </div>
